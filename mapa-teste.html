@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ALiPG — Teste do Mapa</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; }
+    h2 { padding: 12px; text-align: center; }
+    #mapa { height: 80vh; width: 100%; }
+  </style>
+</head>
+<body>
+  <h2>ALiPG — Mapa de Ponta Grossa</h2>
+  <div id="mapa"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    const mapa = L.map('mapa').setView([-25.095, -50.16], 12);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(mapa);
+
+    L.marker([-25.095, -50.16])
+      .addTo(mapa)
+      .bindPopup('ALiPG — Ponta Grossa');
+  </script>
+</body>
+</html>
